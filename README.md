@@ -1,2 +1,5 @@
-# React
-This Repository contains React Concepts and Projects
+# TIC-TAC-TOE GAME
+
+This Game Will help us to know basics of React
+
+
