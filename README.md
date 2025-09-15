@@ -1,5 +1,5 @@
-# TIC-TAC-TOE GAME
+# React Repository
 
-This Game Will help us to know basics of React
+This Repository Contains all the Codes and Projects o React Library
 
 
