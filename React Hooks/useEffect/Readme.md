@@ -5,19 +5,19 @@ Side effects = code that runs outside the render process (fetching data, subscri
 
 Syntax:
 
-useEffect(() => {
+`` useEffect(() => {
   // side effect code
   return () => {
     // cleanup (optional)
   };
-}, [dependencies]);
+}, [dependencies]);``
 
 🎯 The 80/20 Core Uses of useEffect
 1. Run code on component mount (like componentDidMount)
 
 👉 Most common: fetch data when component loads.
-
-import { useEffect, useState } from "react";
+```javascript
+ import { useEffect, useState } from "react";
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -34,6 +34,7 @@ function Users() {
     </ul>
   );
 }
+```
 
 
 ✅ Application: fetching data, analytics tracking, initial API calls.
@@ -41,7 +42,7 @@ function Users() {
 2. Run code when state/props change (reactive updates)
 
 👉 Trigger effect only when a variable changes.
-
+```
 import { useEffect, useState } from "react";
 
 function Counter() {
@@ -53,14 +54,14 @@ function Counter() {
 
   return <button onClick={() => setCount(count + 1)}>+</button>;
 }
-
+```
 
 ✅ Application: syncing state with localStorage, calling an API when a filter changes.
 
 3. Cleanup effects (like componentWillUnmount)
 
 👉 Remove subscriptions, clear timers, avoid memory leaks.
-
+```javacript
 import { useEffect, useState } from "react";
 
 function Timer() {
@@ -74,6 +75,7 @@ function Timer() {
 
   return <h1>{time}</h1>;
 }
+```
 
 
 ✅ Application: clearing intervals, unsubscribing from WebSocket, cleaning event listeners.
@@ -82,9 +84,10 @@ function Timer() {
 
 👉 Without dependencies, effect runs on every render (rarely needed).
 
-useEffect(() => {
+```useEffect(() => {
   console.log("I run after every render");
 });
+```
 
 
 ✅ Application: debugging or very rare continuous syncing.
@@ -116,11 +119,16 @@ ChatGPT said:
 Perfect ✅ Let me give you a visual cheat sheet of useEffect patterns (the 80/20 cases).
 
 ⚡ useEffect Cheat Sheet (80/20)
-Pattern	Code	When it Runs	Typical Use
-Run once (on mount)	jsx useEffect(() => { console.log("mounted"); }, []);	Only first render	Fetch data, analytics
-Run on every render	jsx useEffect(() => { console.log("rendered"); });	After every render	Rarely used, debugging
-Run when dependency changes	jsx useEffect(() => { console.log("count:", count); }, [count]);	First render + whenever count changes	Reacting to state/prop changes, API calls
-Cleanup on unmount / before re-run	jsx useEffect(() => { const id = setInterval(() => console.log("tick"), 1000); return () => clearInterval(id); }, []);	Cleans up when component unmounts or before effect runs again	Clear intervals, remove event listeners, unsubscribe from APIs
+<br/>
+
+|Pattern|	Code	|When it Runs	|Typical Use|
+|-------|------|------------|------------|
+|Run once (on mount)|	jsx useEffect(() => { console.log("mounted"); }, []);|	Only first render|	Fetch data, analytics|
+|Run on every render|	jsx useEffect(() => { console.log("rendered"); });|	After every render	|Rarely used, debugging
+|Run when dependency changes	|jsx useEffect(() => { console.log("count:", count); }, [count]);|	First render + whenever count changes|	Reacting to state/prop changes, API calls
+|Cleanup on unmount / before re-run	|jsx useEffect(() => { const id = setInterval(() => console.log("tick"), 1000); return () => clearInterval(id); }, []);	|Cleans up when component unmounts or before effect runs again	|Clear intervals, remove event listeners, unsubscribe from APIs
+
+<br/>
 🧠 Quick Rules to Remember
 
 [] (empty deps) → run once.
