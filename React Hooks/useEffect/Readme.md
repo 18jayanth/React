@@ -1,4 +1,4 @@
-🔑 What is useEffect?
+# 🔑 What is useEffect?
 
 useEffect lets you run side effects in a React component.
 Side effects = code that runs outside the render process (fetching data, subscriptions, timers, DOM manipulation, etc.).
@@ -13,7 +13,7 @@ Syntax:
 }, [dependencies]);``
 
 🎯 The 80/20 Core Uses of useEffect
-1. Run code on component mount (like componentDidMount)
+## 1. Run code on component mount (like componentDidMount)
 
 👉 Most common: fetch data when component loads.
 ```javascript
@@ -39,7 +39,7 @@ function Users() {
 
 ✅ Application: fetching data, analytics tracking, initial API calls.
 
-2. Run code when state/props change (reactive updates)
+## 2. Run code when state/props change (reactive updates)
 
 👉 Trigger effect only when a variable changes.
 ```
@@ -58,7 +58,7 @@ function Counter() {
 
 ✅ Application: syncing state with localStorage, calling an API when a filter changes.
 
-3. Cleanup effects (like componentWillUnmount)
+## 3. Cleanup effects (like componentWillUnmount)
 
 👉 Remove subscriptions, clear timers, avoid memory leaks.
 ```javacript
@@ -80,7 +80,7 @@ function Timer() {
 
 ✅ Application: clearing intervals, unsubscribing from WebSocket, cleaning event listeners.
 
-4. Avoid unnecessary re-renders
+## 4. Avoid unnecessary re-renders
 
 👉 Without dependencies, effect runs on every render (rarely needed).
 
@@ -92,7 +92,7 @@ function Timer() {
 
 ✅ Application: debugging or very rare continuous syncing.
 
-📌 Summary (80/20 Takeaway)
+## 📌 Summary (80/20 Takeaway)
 
 If you master these 3 cases, you’ll cover 80%+ of real-world uses of useEffect:
 
@@ -102,7 +102,7 @@ When deps change → run logic reactively.
 
 Cleanup → stop intervals, unsubscribe.
 
-⚡ Quick Application Ideas:
+## ⚡ Quick Application Ideas:
 
 Fetch weather data when page loads.
 
@@ -110,15 +110,9 @@ Save form data to localStorage whenever user types.
 
 Start/stop a timer or WebSocket connection.
 
-👉 Do you want me to make a mini cheat sheet (visual table) of useEffect patterns (mount, deps, cleanup) so you can quickly revise during practice?
 
-You said:
-yes
-ChatGPT said:
 
-Perfect ✅ Let me give you a visual cheat sheet of useEffect patterns (the 80/20 cases).
-
-⚡ useEffect Cheat Sheet (80/20)
+## ⚡ useEffect Cheat Sheet (80/20)
 <br/>
 
 |Pattern|	Code	|When it Runs	|Typical Use|
@@ -129,7 +123,8 @@ Perfect ✅ Let me give you a visual cheat sheet of useEffect patterns (the 80/2
 |Cleanup on unmount / before re-run	|jsx useEffect(() => { const id = setInterval(() => console.log("tick"), 1000); return () => clearInterval(id); }, []);	|Cleans up when component unmounts or before effect runs again	|Clear intervals, remove event listeners, unsubscribe from APIs
 
 <br/>
-🧠 Quick Rules to Remember
+
+## 🧠 Quick Rules to Remember
 
 [] (empty deps) → run once.
 
@@ -139,4 +134,3 @@ No deps → run every render.
 
 Return a function → cleanup logic.
 
-📌 With just these 4 patterns, you can handle 80–90% of side effects in React.
