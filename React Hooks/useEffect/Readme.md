@@ -5,12 +5,14 @@ Side effects = code that runs outside the render process (fetching data, subscri
 
 Syntax:
 
-`` useEffect(() => {
-  // side effect code
+```
+useEffect(() => {
+// side effect code
   return () => {
     // cleanup (optional)
   };
-}, [dependencies]);``
+}, [dependencies]);
+```
 
 🎯 The 80/20 Core Uses of useEffect
 ## 1. Run code on component mount (like componentDidMount)
