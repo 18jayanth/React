@@ -1,0 +1,21 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+nav{
+  display:flex;
+  justify-content: space-around;
+  background-color: black;
+}
+li{
+  padding:20px;
+  color:white;
+  list-style: none;
+}
+li:hover{
+  color:aqua;
+}
+.red{
+  background-color:red;
+color: white;
+}
