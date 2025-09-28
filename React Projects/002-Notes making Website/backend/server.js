@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://jayanth:12345@notesdb.mk4diws.mongodb.net/")
+mongoose.connect("mongodb+srv://<username>:<password>@notesdb.mk4diws.mongodb.net/")
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
@@ -41,3 +41,4 @@ app.delete("/notes/:id", async (req, res) => {
 });
 
 app.listen(5000, () => console.log("Server running on port 5000"));
+
